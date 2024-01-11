@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <canvas id="meuGrafico"></canvas>
+</body>
+<script>
+    // Dados do gráfico
+    let data = {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+      datasets: [{
+        label: 'Mar',
+        data: [12, 19, 3, 5, 2],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      },{
+        label: 'Rio',
+        data: [10, 15, 9, 12, 5],
+        backgroundColor: 'rgba(40, 192, 0, 0.2)',
+        borderColor: 'rgba(40, 192, 0, 1)',
+        borderWidth: 1
+      }
+      ,{
+        label: 'Esgoto',
+        data: [20, 12, 7, 17, 3],
+        backgroundColor: 'rgba(180, 192, 40, 0.2)',
+        borderColor: 'rgba(180, 192, 40, 1)',
+        borderWidth: 1
+      }]
+    };
+  
+    // Configurações do gráfico
+    var options = {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    };
+  
+    // Criação do gráfico
+    var ctx = document.getElementById('meuGrafico').getContext('2d');
+    var myChart = new Chart(ctx, {
+      type: 'line',//bar
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: true,
+            text: 'Chart.js Line Chart - Cubic interpolation mode'
+          },
+        },
+        interaction: {
+          intersect: false,
+        }
+    }
+}
+    );
+
+
+  </script>
+</html>

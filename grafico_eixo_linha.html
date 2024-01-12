@@ -50,35 +50,37 @@
     var myChart = new Chart(ctx, {
       type: 'line',//bar
       data: data,
-      options: {
+      options:  {
         responsive: true,
+        interaction: {
+          mode: 'index',
+          intersect: false,
+        },
+        stacked: false,
         plugins: {
           title: {
             display: true,
-            text: 'Chart.js Line Chart - Cubic interpolation mode'
-          },
-        },
-        interaction: {
-          intersect: false,
+            text: 'Chart.js Line Chart - Multi Axis'
+          }
         },
         scales: {
-          x: {
-            display: true,
-            title: {
-              display: true
-            }
-          },
           y: {
+            type: 'linear',
             display: true,
-            title: {
-              display: true,
-              text: 'Value'
+            position: 'left',
+          },
+          y1: {
+            type: 'linear',
+            display: true,
+            position: 'right',
+    
+            // grid line settings
+            grid: {
+              drawOnChartArea: false, // only want the grid lines for one axis to show up
             },
-            suggestedMin: -10,
-            suggestedMax: 200
-          }
+          },
         }
-    }
+      }
 }
     );
 
